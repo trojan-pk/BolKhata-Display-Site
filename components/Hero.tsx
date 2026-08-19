@@ -46,25 +46,7 @@ export default function Hero() {
         {...cascade}
         className="flex w-full max-w-[52rem] flex-col items-center"
       >
-        {/* ---- status marker, sitting on a full-bleed rule --------------- */}
-        <motion.div
-          variants={rise}
-          className="relative mb-11 flex w-full items-center justify-center"
-        >
-          <span
-            aria-hidden="true"
-            /* w-screen breaks out of the centred column so the rule reaches
-               both edges of the viewport, not just this container */
-            className="absolute top-1/2 left-1/2 h-px w-screen -translate-x-1/2 bg-line"
-          />
-          <p className="label relative flex items-center gap-2 bg-ground px-4">
-            <span
-              aria-hidden="true"
-              className="size-1.5 animate-live rounded-full bg-accent"
-            />
-            Private beta · August 2026
-          </p>
-        </motion.div>
+
 
         <h1 className="mb-7 text-center">
           <span className={lineMask}>
