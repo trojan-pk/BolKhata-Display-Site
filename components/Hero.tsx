@@ -67,9 +67,9 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        <h1 className="mb-7">
+        <h1 className="mb-7 text-center">
           <span className={lineMask}>
-            <motion.span variants={typeLine} className="block will-change-transform">
+            <motion.span variants={typeLine} className="block text-center will-change-transform">
               Bookkeeping that happens
             </motion.span>
           </span>
@@ -79,14 +79,14 @@ export default function Hero() {
                 negative tracking than the sans to sit at this size. */}
             <motion.span
               variants={typeLine}
-              className="spoken block tracking-[-0.02em] will-change-transform"
+              className="spoken block text-center tracking-[-0.02em] will-change-transform"
             >
               as you speak.
             </motion.span>
           </span>
         </h1>
 
-        <motion.p variants={rise} className="lead mx-auto text-balance">
+        <motion.p variants={rise} className="lead mx-auto text-center text-balance text-sm sm:text-base max-w-[42ch]">
           BolKhata is a voice agent for small businesses. Describe a transaction
           in one sentence — it posts the entry to a double-entry ledger, tracks
           what you are owed, and reconciles the day before you close.
