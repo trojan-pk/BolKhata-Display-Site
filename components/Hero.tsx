@@ -37,10 +37,9 @@ export default function Hero() {
   return (
     <section
       id="top"
-      /* svh, not vh: on mobile the dynamic browser chrome would otherwise push
-         the centred block below the fold. The padding leaves room for the
-         header overlaying the top and the cue sitting at the bottom. */
-      className="relative flex min-h-svh flex-col items-center justify-center px-gutter pt-28 pb-20 text-center"
+      /* Exact viewport height minus sticky header height (~4rem) so content is
+         optically and mathematically centered in the visible area below header. */
+      className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center px-gutter py-12 text-center"
     >
       <motion.div
         variants={container}
@@ -131,10 +130,10 @@ export default function Hero() {
         initial={still ? undefined : { opacity: 0 }}
         animate={still ? undefined : { opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.9 }}
-        className="absolute bottom-7 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2.5"
+        className="absolute bottom-3 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1.5"
       >
         <span className="label">One entry, spoken</span>
-        <span className="h-8 w-px bg-linear-to-b from-line to-transparent" />
+        <span className="h-6 w-px bg-linear-to-b from-line to-transparent" />
       </motion.p>
     </section>
   );
