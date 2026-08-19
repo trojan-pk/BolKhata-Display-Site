@@ -53,14 +53,14 @@ export default function Steps() {
             />
 
             <p className="mb-3.5 flex items-baseline gap-2.5">
-              <span className="figure text-micro font-medium tracking-[0.06em] text-accent">
+              <span className="figure text-micro font-semibold tracking-[0.06em] text-accent">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="label text-ink-2">{item.step}</span>
+              <span className="label text-ink font-semibold">{item.step}</span>
             </p>
 
-            <h3 className="mb-2.5">{item.title}</h3>
-            <p className="max-w-[34ch] text-sm leading-[1.62] text-ink-2">
+            <h3 className="mb-2.5 text-ink font-semibold">{item.title}</h3>
+            <p className="max-w-[34ch] text-sm leading-[1.62] text-ink-2 font-medium">
               {item.body}
             </p>
           </motion.li>

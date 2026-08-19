@@ -25,24 +25,24 @@
   color-scheme: light;
 
   --paper: #ffffff;
-  --ground: #fcfcfb;
-  --ground-2: #f7f7f5;
+  --ground: #f8f8f6;
+  --ground-2: #efefe9;
 
-  --ink: #14161a;
-  --ink-2: #585d64;
-  --ink-3: #8d9299;
+  --ink: #0b0d10;
+  --ink-2: #2d3137;
+  --ink-3: #525760;
 
-  --line: #e6e6e2;
-  --line-2: #f0f0ec;
+  --line: #d8d8d2;
+  --line-2: #e4e4de;
 
-  --accent: #14614a;
-  --accent-hover: #0f5340;
+  --accent: #11533e;
+  --accent-hover: #0c3e2e;
   --accent-ink: #ffffff;
-  --accent-soft: #eef3f0;
-  --accent-line: #cedfd7;
+  --accent-soft: #e5ede8;
+  --accent-line: #b9d2c6;
 
-  --debit: #a8432f;
-  --gold: #8f6a26;
+  --debit: #9c3b28;
+  --gold: #7d5b1f;
 
   /* Barely there. Elevation is drawn with a hairline first, shadow second. */
   --shadow: 0 1px 2px rgb(20 22 26 / 0.03), 0 10px 28px -14px rgb(20 22 26 / 0.09);
@@ -191,10 +191,11 @@
   h1,
   h2,
   h3 {
-    font-weight: 550;
+    font-weight: 600;
     line-height: 1.1;
     letter-spacing: -0.03em;
     text-wrap: balance;
+    color: var(--ink);
   }
 
   h1 {
@@ -241,10 +242,10 @@
   .label {
     font-family: var(--font-mono);
     font-size: var(--text-micro);
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ink-3);
+    color: var(--ink-2);
     line-height: 1.4;
   }
 
@@ -266,7 +267,8 @@
   .lead {
     font-size: var(--text-lead);
     line-height: 1.55;
-    color: var(--ink-2);
+    color: #1c1f24;
+    font-weight: 450;
     max-width: var(--container-measure);
   }
 }

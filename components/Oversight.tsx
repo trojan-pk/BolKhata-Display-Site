@@ -45,8 +45,8 @@ export default function Oversight() {
             </svg>
           </span>
 
-          <h3 className="mb-2">{item.title}</h3>
-          <p className="text-sm leading-[1.62] text-ink-2">{item.body}</p>
+          <h3 className="mb-2 text-ink font-semibold">{item.title}</h3>
+          <p className="text-sm leading-[1.62] text-ink-2 font-medium">{item.body}</p>
         </motion.li>
       ))}
     </motion.ul>

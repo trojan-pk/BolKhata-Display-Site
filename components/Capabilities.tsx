@@ -26,13 +26,13 @@ export default function Capabilities() {
           variants={still ? undefined : rise}
           className="min-w-0 border-t border-line pt-4"
         >
-          <span className="figure mb-2.5 block text-micro tracking-[0.06em] text-ink-3">
+          <span className="figure mb-2.5 block text-micro tracking-[0.06em] text-ink-2 font-semibold">
             {String(i + 1).padStart(2, "0")}
           </span>
-          <h3 className="mb-1.5 text-body font-semibold tracking-[-0.02em]">
+          <h3 className="mb-1.5 text-body font-semibold tracking-[-0.02em] text-ink">
             {item.title}
           </h3>
-          <p className="text-sm leading-[1.6] text-ink-2">{item.body}</p>
+          <p className="text-sm leading-[1.6] text-ink-2 font-medium">{item.body}</p>
         </motion.li>
       ))}
     </motion.ul>
