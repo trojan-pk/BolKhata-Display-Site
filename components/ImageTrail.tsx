@@ -98,12 +98,12 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
                 width: "130px",
                 height: "130px",
               }}
-              className="rounded-card border-2 border-paper bg-paper p-1 shadow-card"
+              className="shadow-md"
             >
               <img
                 src={img.src}
                 alt="Unsplash Trail Item"
-                className="size-full rounded-sm object-cover"
+                className="size-full rounded-none object-cover"
                 draggable={false}
               />
             </motion.div>
