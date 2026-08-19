@@ -1,0 +1,56 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Next.js build output & production builds
+/.next/
+/out/
+/build
+/dist
+
+# Debug & package manager logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+*.log
+
+# Environment variables
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+!.env.example
+
+# Vercel & Turbo cache
+.vercel
+.turbo
+
+# TypeScript build info & auto-generated types
+*.tsbuildinfo
+next-env.d.ts
+
+# IDEs & Code Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS junk files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project-specific local storage / data files
+data/waitlist.jsonl
