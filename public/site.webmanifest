@@ -1,0 +1,14 @@
+{
+  "name": "BolKhata — voice-first bookkeeping",
+  "short_name": "BolKhata",
+  "icons": [
+    {
+      "src": "/BKS-01.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#fcfcfb",
+  "background_color": "#fcfcfb",
+  "display": "standalone"
+}

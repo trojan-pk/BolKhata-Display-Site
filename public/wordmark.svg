@@ -1,0 +1,9 @@
+<svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="#11533e" stroke-width="2" stroke-linecap="round">
+    <path d="M4 12.6c4.6 0 6.9-8.6 11-8.6 3 0 5.1 2.4 5.1 5.4" />
+    <path d="M4 19h20" />
+    <path d="M4 24h12.5" />
+    <circle cx="20.1" cy="9.6" r="1.9" fill="#11533e" stroke="none" />
+  </g>
+  <text x="32" y="21" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="18" fill="#0b0d10" letter-spacing="-0.5px">BolKhata</text>
+</svg>

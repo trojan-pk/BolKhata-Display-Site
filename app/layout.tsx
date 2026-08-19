@@ -38,6 +38,12 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/BKS-01.svg",
+    shortcut: "/BKS-01.svg",
+    apple: "/BKS-01.svg",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export const viewport: Viewport = {
