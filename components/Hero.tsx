@@ -3,6 +3,8 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { rise, stagger, typeLine } from "@/lib/motion";
 
+import ImageTrail from "./ImageTrail";
+
 /* One container drives the whole introduction, in reading order, so the timing
    lives in one place instead of being scattered across per-element delays. */
 const container = stagger(0.085, 0.05);
@@ -35,12 +37,13 @@ export default function Hero() {
     : { initial: "hidden" as const, animate: "shown" as const };
 
   return (
-    <section
-      id="top"
-      /* Exact viewport height minus sticky header height (~4rem) so content is
-         optically and mathematically centered in the visible area below header. */
-      className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center px-gutter py-12 text-center"
-    >
+    <ImageTrail>
+      <section
+        id="top"
+        /* Exact viewport height minus sticky header height (~4rem) so content is
+           optically and mathematically centered in the visible area below header. */
+        className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center px-gutter py-12 text-center"
+      >
       <motion.div
         variants={container}
         {...cascade}
@@ -111,6 +114,7 @@ export default function Hero() {
         <span className="label">One entry, spoken</span>
         <span className="h-6 w-px bg-linear-to-b from-line to-transparent" />
       </motion.p>
-    </section>
+      </section>
+    </ImageTrail>
   );
 }
