@@ -4,7 +4,9 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { VIEW, rise, stagger } from "@/lib/motion";
 
-const ADDRESS = "hello@bolkhata.app";
+import ScrollTextReveal from "./ScrollTextReveal";
+
+const ADDRESS = "teamtrojans08@gmail.com";
 
 /**
  * The closing ask.
@@ -27,22 +29,12 @@ export default function Access() {
   };
 
   return (
-    <motion.div
-      variants={still ? undefined : stagger()}
-      initial={still ? undefined : "hidden"}
-      whileInView={still ? undefined : "shown"}
-      viewport={VIEW}
-      className="max-w-[44rem]"
-    >
-      <motion.h2 variants={still ? undefined : rise} className="mb-5">
-        Request early access.
-      </motion.h2>
-
-      <motion.p variants={still ? undefined : rise} className="lead mb-8">
-        BolKhata is opening to a limited number of businesses at a time so that
-        every early ledger can be reviewed properly. Tell us what you trade in
-        and we will set you up.
-      </motion.p>
+    <div className="max-w-[44rem]">
+      <ScrollTextReveal
+        title="Request early access."
+        lead="BolKhata is opening to a limited number of businesses at a time so that every early ledger can be reviewed properly. Tell us what you trade in and we will set you up."
+        className="mb-8"
+      />
 
       <motion.form
         variants={still ? undefined : rise}
@@ -84,6 +76,6 @@ export default function Access() {
         </a>{" "}
         directly.
       </motion.p>
-    </motion.div>
+    </div>
   );
 }

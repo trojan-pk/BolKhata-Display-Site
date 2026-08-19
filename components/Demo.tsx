@@ -2,6 +2,7 @@
 
 import VoiceLedger from "./VoiceLedger";
 import Reveal from "./Reveal";
+import ScrollTextReveal from "./ScrollTextReveal";
 
 const assurances = [
   { term: "Double-entry", detail: "Debit and credit on every posting." },
@@ -22,22 +23,23 @@ export default function Demo() {
     >
       <div className="mx-auto w-full max-w-page px-gutter">
         {/* ---- Introducing BolKhata Header Block -------------------------- */}
-        <Reveal className="mx-auto mb-[clamp(2.5rem,1.5rem+4vw,4.5rem)] max-w-[48rem] text-center">
-          <p className="label mb-3 inline-flex items-center justify-center gap-2 text-ink-2">
-            <span className="size-1.5 rounded-full bg-accent animate-pulse" />
-            Introducing BolKhata
-          </p>
-          <h2
-            id="demo-heading"
-            className="mb-5 text-center text-[clamp(2rem,1.2rem+3vw,3.5rem)] font-semibold tracking-[-0.035em] text-ink leading-[1.08]"
-          >
-            An agentic voice ledger that keeps your books{" "}
-            <span className="spoken font-normal">straight as you speak.</span>
-          </h2>
-          <p className="lead mx-auto text-center text-sm sm:text-base max-w-[44ch] text-ink-2 font-medium">
-            Describe any transaction in one spoken sentence. BolKhata identifies the party, posts double-entry journal items, tracks receivables, and reconciles your cash balance before you close.
-          </p>
-        </Reveal>
+        <ScrollTextReveal
+          id="demo-heading"
+          eyebrow={
+            <p className="label flex items-center justify-center gap-2 text-ink-2">
+              <span className="size-1.5 rounded-full bg-accent animate-pulse" />
+              Introducing BolKhata
+            </p>
+          }
+          title={
+            <>
+              An agentic voice ledger that keeps your books{" "}
+              <span className="spoken font-normal">straight as you speak.</span>
+            </>
+          }
+          lead="Describe any transaction in one spoken sentence. BolKhata identifies the party, posts double-entry journal items, tracks receivables, and reconciles your cash balance before you close."
+          className="mx-auto text-center max-w-[48rem]"
+        />
 
         {/* ---- Live Voice Ledger Demo Card ------------------------------- */}
         <Reveal className="mx-auto max-w-[40rem]">

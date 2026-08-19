@@ -9,8 +9,9 @@ import Oversight from "@/components/Oversight";
 import Access from "@/components/Access";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import ScrollTextReveal from "@/components/ScrollTextReveal";
 
-/** A section's own heading. Kept here so the page reads as an outline. */
+/** A section's own heading with scroll-based blacken text reveal animation. */
 function Heading({
   title,
   lead,
@@ -18,12 +19,7 @@ function Heading({
   title: React.ReactNode;
   lead?: React.ReactNode;
 }) {
-  return (
-    <Reveal className="mb-[clamp(2rem,1rem+2.5vw,3rem)]">
-      <h2 className={lead ? "mb-4" : ""}>{title}</h2>
-      {lead && <p className="lead">{lead}</p>}
-    </Reveal>
-  );
+  return <ScrollTextReveal title={title} lead={lead} />;
 }
 
 export default function Home() {

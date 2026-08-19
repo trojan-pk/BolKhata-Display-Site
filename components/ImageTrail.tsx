@@ -38,6 +38,13 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
   const containerRef = useRef<HTMLDivElement>(null);
 
   const spawnImage = useCallback((x: number, y: number) => {
+    if (
+      typeof window !== "undefined" &&
+      (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)
+    ) {
+      return;
+    }
+
     if (lastPos.current) {
       const dist = Math.hypot(x - lastPos.current.x, y - lastPos.current.y);
       if (dist < 55) return;
@@ -64,6 +71,12 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
+      if (
+        typeof window !== "undefined" &&
+        (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)
+      ) {
+        return;
+      }
       if (!containerRef.current) return;
       const target = e.target as HTMLElement | null;
       if (target?.closest("a, button, input, textarea, select, [data-no-trail]")) {
@@ -77,6 +90,12 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
 
   const handleTouchMove = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
+      if (
+        typeof window !== "undefined" &&
+        (window.innerWidth < 768 || window.matchMedia("(pointer: coarse)").matches)
+      ) {
+        return;
+      }
       if (!containerRef.current || e.touches.length === 0) return;
       const target = e.target as HTMLElement | null;
       if (target?.closest("a, button, input, textarea, select, [data-no-trail]")) {
@@ -98,7 +117,7 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
     >
       {children}
 
-      <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
+      <div className="hidden md:block pointer-events-none absolute inset-0 z-20 overflow-hidden">
         <AnimatePresence>
           {images.map((img) => (
             <motion.div

@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { utterances, rupees, day } from "@/lib/content";
+import { VIEW, EASE } from "@/lib/motion";
 
 type Phase = "listening" | "resolving" | "posted";
 
@@ -126,10 +128,15 @@ export default function VoiceLedger() {
       </p>
 
       {/* data-phase on this one element is the switch every child reads. */}
-      <div
+      <motion.div
+        initial={animate ? { opacity: 0, y: 25, scale: 0.96 } : undefined}
+        whileInView={animate ? { opacity: 1, y: 0, scale: 1 } : undefined}
+        whileHover={animate ? { y: -4, transition: { duration: 0.25, ease: EASE } } : undefined}
+        viewport={VIEW}
+        transition={{ duration: 0.7, ease: EASE }}
         data-phase={phase}
         aria-hidden="true"
-        className="group/card relative flex min-h-[24rem] flex-col overflow-hidden rounded-card border border-line bg-paper shadow-card"
+        className="group/card relative flex min-h-[24rem] flex-col overflow-hidden rounded-card border border-line bg-paper shadow-card transition-shadow duration-300 hover:shadow-glow hover:border-accent-line"
       >
         <div className="flex items-center justify-between gap-4 border-b border-line-2 px-5 py-3">
           <span className={`${chromeType} inline-flex items-center gap-2 text-ink-2`}>
@@ -223,7 +230,7 @@ export default function VoiceLedger() {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

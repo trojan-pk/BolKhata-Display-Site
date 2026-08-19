@@ -2,19 +2,20 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { capabilities } from "@/lib/content";
-import { VIEW, rise, stagger } from "@/lib/motion";
+import { EASE, VIEW, flipUp, rise, slideLeft, slideRight, stagger, zoomIn } from "@/lib/motion";
+
+const itemVariants = [zoomIn, rise, flipUp, slideLeft, slideRight, zoomIn, rise, flipUp];
 
 /**
- * Eight capabilities, set as a ruled table rather than eight cards. A rule per
- * cell keeps the list feeling like a schedule of contents — which is what it
- * is — and stops the section competing with the day book below it.
+ * Scope Section Capabilities: grid of 8 capabilities with varied stagger,
+ * interactive card lifts, and border accent highlights.
  */
 export default function Capabilities() {
   const still = useReducedMotion();
 
   return (
     <motion.ul
-      variants={still ? undefined : stagger(0.055, 0.08)}
+      variants={still ? undefined : stagger(0.065, 0.08)}
       initial={still ? undefined : "hidden"}
       whileInView={still ? undefined : "shown"}
       viewport={VIEW}
@@ -23,13 +24,21 @@ export default function Capabilities() {
       {capabilities.map((item, i) => (
         <motion.li
           key={item.title}
-          variants={still ? undefined : rise}
-          className="min-w-0 border-t border-line pt-4"
+          variants={still ? undefined : itemVariants[i % itemVariants.length]}
+          whileHover={
+            still
+              ? undefined
+              : { y: -4, transition: { duration: 0.2, ease: EASE } }
+          }
+          className="group min-w-0 rounded-card border-t-2 border-line bg-paper/50 p-4 transition-all duration-300 hover:border-accent hover:bg-paper hover:shadow-md"
         >
-          <span className="figure mb-2.5 block text-micro tracking-[0.06em] text-ink-2 font-semibold">
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <h3 className="mb-1.5 text-body font-semibold tracking-[-0.02em] text-ink">
+          <div className="mb-2.5 flex items-center justify-between">
+            <span className="figure text-xs font-bold tracking-[0.06em] text-accent bg-accent-soft px-2 py-0.5 rounded border border-accent-line">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="size-1.5 rounded-full bg-line group-hover:bg-accent transition-colors duration-200" />
+          </div>
+          <h3 className="mb-1.5 text-body font-bold tracking-[-0.02em] text-ink group-hover:text-accent transition-colors duration-200">
             {item.title}
           </h3>
           <p className="text-sm leading-[1.6] text-ink-2 font-medium">{item.body}</p>

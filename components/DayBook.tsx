@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { dayBook, dayTotals, openingBalance, rupees, day } from "@/lib/content";
-import { EASE, VIEW } from "@/lib/motion";
+import { EASE, VIEW, zoomIn, stagger } from "@/lib/motion";
 
 const head =
   "px-3 py-2.5 font-mono text-micro font-medium tracking-[0.13em] uppercase text-ink-3";
@@ -32,12 +32,18 @@ export default function DayBook() {
   const row = still
     ? undefined
     : {
-        hidden: { opacity: 0, y: 8 },
-        shown: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+        hidden: { opacity: 0, y: 12 },
+        shown: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
       };
 
   return (
-    <div className="overflow-hidden rounded-card border border-line bg-paper shadow-card">
+    <motion.div
+      initial={still ? undefined : { opacity: 0, scale: 0.97 }}
+      whileInView={still ? undefined : { opacity: 1, scale: 1 }}
+      viewport={VIEW}
+      transition={{ duration: 0.7, ease: EASE }}
+      className="overflow-hidden rounded-card border border-line bg-paper shadow-card"
+    >
       {/* ---- opening ---- */}
       <div
         className={`flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-line py-4 ${pad}`}
@@ -216,6 +222,6 @@ export default function DayBook() {
         <span className="figure text-ink-2">{rupees(dayTotals.closing)}</span>{" "}
         closing. Reconciled.
       </p>
-    </div>
+    </motion.div>
   );
 }
