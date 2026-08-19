@@ -4,14 +4,22 @@ import { useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const UNSPLASH_IMAGES = [
-  "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=400&q=80",
+  // Classic accounting ledger book & fountain pen
+  "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80",
+  // Financial calculation ledger sheets & calculator
+  "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=500&q=80",
+  // Bookkeeping record book & document audit
+  "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=500&q=80",
+  // Business financial balance ledger & figures
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=500&q=80",
+  // Auditing ledger journal notebook
+  "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
+  // Handwritten receipts & shop sales journal
+  "https://images.unsplash.com/photo-1586486855514-8c633cc6fd38?auto=format&fit=crop&w=500&q=80",
+  // Cash ledger close & currency counting
+  "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=500&q=80",
+  // Trade store counter point-of-sale receipt ledger
+  "https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&w=500&q=80",
 ];
 
 interface TrailImage {
@@ -57,6 +65,10 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (!containerRef.current) return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("a, button, input, textarea, select, [data-no-trail]")) {
+        return;
+      }
       const rect = containerRef.current.getBoundingClientRect();
       spawnImage(e.clientX - rect.left, e.clientY - rect.top);
     },
@@ -66,6 +78,10 @@ export default function ImageTrail({ children }: { children: React.ReactNode }) 
   const handleTouchMove = useCallback(
     (e: React.TouchEvent<HTMLDivElement>) => {
       if (!containerRef.current || e.touches.length === 0) return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("a, button, input, textarea, select, [data-no-trail]")) {
+        return;
+      }
       const rect = containerRef.current.getBoundingClientRect();
       const touch = e.touches[0];
       spawnImage(touch.clientX - rect.left, touch.clientY - rect.top);

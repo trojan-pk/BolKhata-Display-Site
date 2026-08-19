@@ -37,7 +37,12 @@ export default function Home() {
 
         <Section id="how" label="Method" bordered={false}>
           <Heading
-            title="Three steps, and one of them is yours."
+            title={
+              <>
+                Three steps, and one of them is{" "}
+                <span className="spoken font-normal">yours.</span>
+              </>
+            }
             lead="Entries go missing at the counter, not at the desk — recording them interrupts the sale. BolKhata asks for the sentence you were going to say anyway and handles the rest."
           />
           <Steps />
@@ -45,7 +50,11 @@ export default function Home() {
 
         <Section id="scope" label="Scope" tone="deep">
           <Heading
-            title="What it handles."
+            title={
+              <>
+                What it <span className="spoken font-normal">handles.</span>
+              </>
+            }
             lead="The day-to-day work of keeping a small trading business straight."
           />
           <Capabilities />
@@ -53,7 +62,11 @@ export default function Home() {
 
         <Section id="record" label="The record">
           <Heading
-            title="A day, reconciled."
+            title={
+              <>
+                A day, <span className="spoken font-normal">reconciled.</span>
+              </>
+            }
             lead="Every entry below came from a spoken sentence, except the rent — a standing instruction the agent posts on its own. Opening balance plus money in, less money out, lands exactly on the closing figure."
           />
           <Reveal>
@@ -63,7 +76,11 @@ export default function Home() {
 
         <Section id="oversight" label="Oversight" tone="deep">
           <Heading
-            title="An agent you can audit."
+            title={
+              <>
+                An agent you can <span className="spoken font-normal">audit.</span>
+              </>
+            }
             lead="An agent writing to your books is only acceptable if you can see what it did, correct it, and take the whole record elsewhere. All three are built in."
           />
           <Oversight />

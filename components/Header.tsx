@@ -50,7 +50,7 @@ export default function Header() {
 
         <a
           href="#access"
-          className="hidden rounded-ledger bg-ink px-3.5 py-2 text-sm font-medium tracking-[-0.012em] text-paper transition-colors duration-200 ease-ledger hover:bg-ink/88 sm:inline-block"
+          className="inline-block rounded-ledger bg-ink px-3 py-1.5 text-xs font-medium tracking-[-0.012em] text-paper transition-colors duration-200 ease-ledger hover:bg-ink/88 sm:px-3.5 sm:py-2 sm:text-sm"
         >
           Request access
         </a>

@@ -15,10 +15,10 @@ const container = stagger(0.085, 0.05);
    pair keeps descenders from being clipped — sized for the italic serif's
    deeper descenders, not the sans's. */
 const lineMask =
-  "block overflow-hidden pb-[0.16em] -mb-[0.16em] motion-reduce:overflow-visible";
+  "block overflow-visible pb-[0.16em] -mb-[0.16em]";
 
 const action =
-  "inline-flex items-center justify-center gap-2 rounded-ledger px-5 py-3 text-sm font-medium tracking-[-0.012em] transition-[background-color,border-color,color] duration-200 ease-ledger";
+  "inline-flex items-center justify-center gap-2 rounded-ledger px-5 py-3 text-sm font-medium tracking-[-0.012em] transition-[background-color,border-color,color] duration-200 ease-ledger w-full sm:w-auto";
 
 /**
  * A single centred statement, held in the middle of the viewport.
@@ -37,12 +37,12 @@ export default function Hero() {
   });
 
   // Left split transformations (Line 1 + Left CTA)
-  const leftX = useTransform(scrollYProgress, [0, 0.65], ["0vw", "-80vw"]);
-  const leftOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const leftX = useTransform(scrollYProgress, [0, 0.65], ["0vw", "-100vw"]);
+  const leftOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
   // Right split transformations (Line 2 + Right CTA)
-  const rightX = useTransform(scrollYProgress, [0, 0.65], ["0vw", "80vw"]);
-  const rightOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const rightX = useTransform(scrollYProgress, [0, 0.65], ["0vw", "100vw"]);
+  const rightOpacity = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
 
   const cueOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
 
@@ -53,19 +53,19 @@ export default function Hero() {
     : { initial: "hidden" as const, animate: "shown" as const };
 
   return (
-    <div ref={targetRef} className="relative h-[135vh]">
+    <div ref={targetRef} className="relative h-[115vh] sm:h-[135vh]">
       <div className="sticky top-16 w-full">
         <ImageTrail>
           <section
             id="top"
-            className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center px-gutter py-12 text-center overflow-hidden"
+            className="relative flex min-h-[calc(100svh-4rem)] flex-col items-center justify-center px-4 sm:px-gutter py-8 sm:py-12 text-center overflow-hidden"
           >
             <motion.div
               variants={container}
               {...cascade}
               className="flex w-full max-w-[52rem] flex-col items-center"
             >
-              <h1 className="mb-7 text-center">
+              <h1 className="mb-6 sm:mb-7 text-center">
                 <span className={lineMask}>
                   <motion.span
                     style={still ? undefined : { x: leftX, opacity: leftOpacity }}
@@ -88,9 +88,10 @@ export default function Hero() {
 
               <motion.div
                 variants={rise}
-                className="mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center justify-center"
+                className="mt-8 sm:mt-10 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center justify-center px-4 sm:px-0"
               >
                 <motion.div
+                  className="w-full sm:w-auto"
                   style={still ? undefined : { x: leftX, opacity: leftOpacity }}
                 >
                   <a
@@ -102,6 +103,7 @@ export default function Hero() {
                 </motion.div>
 
                 <motion.div
+                  className="w-full sm:w-auto"
                   style={still ? undefined : { x: rightX, opacity: rightOpacity }}
                 >
                   <a

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { fontClass } from "./fonts";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const SITE = "https://bolkhata.app";
 
@@ -48,7 +49,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={fontClass}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
