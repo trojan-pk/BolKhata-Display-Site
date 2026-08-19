@@ -85,12 +85,6 @@ export default function Hero() {
           </span>
         </h1>
 
-        <motion.p variants={rise} className="lead mx-auto text-center text-balance text-sm sm:text-base max-w-[42ch]">
-          BolKhata is a voice agent for small businesses. Describe a transaction
-          in one sentence — it posts the entry to a double-entry ledger, tracks
-          what you are owed, and reconciles the day before you close.
-        </motion.p>
-
         <motion.div
           variants={rise}
           className="mt-10 flex w-full flex-col gap-2.5 sm:w-auto sm:flex-row sm:items-center"

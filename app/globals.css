@@ -109,9 +109,9 @@
      generic device size. */
   --breakpoint-wide: 62rem;
 
-  /* Corners stay nearly square — a ledger is ruled, not rounded. */
-  --radius-ledger: 2px;
-  --radius-card: 4px;
+  /* Softly rounded corners for CTAs and interactive controls across the site */
+  --radius-ledger: 8px;
+  --radius-card: 8px;
 
   --ease-ledger: cubic-bezier(0.22, 0.85, 0.32, 1);
 
